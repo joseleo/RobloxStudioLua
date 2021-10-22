@@ -1,0 +1,46 @@
+Boolean
+-------
+playerHasKey = true
+
+true, false
+
+
+Ver: https://developer.roblox.com/en-us/articles/Table
+
+Tabla (hashtable, diccionarios, arrays)
+----------------------------------------
+Puede almacenar multiples valores de los tipos vistos anteriormente: números, booleanos, cadenas, funciones, etc.
+Se designan con corchetes (curly braces)
+
+local coloresFruta = { apple = "red" , banana = "yellow" }
+Las tablas diccionario son una extensión de los array y almacenan una colección de pares key-value (clave-valor)
+
+Array (arreglos)
+----------------
+local murcielagoStats = {"Murcielago", 1, 2.2, workspace.Murcielago}
+
+
+Nil
+----
+Representa la no existencia de algo.
+Se usa para eliminar un valor en una tabla o destruir variables en scripts.
+
+Ver: https://developer.roblox.com/en-us/Articles/Nil/index.html
+
+-------------------------
+
+-- Create a new brick
+local part = Instance.new("Part")
+-- Parent new part to the workspace, making it viewable
+part.Parent = workspace 
+wait(1)
+-- Remove the part from view, but not from memory
+part.Parent = nil
+wait(1)
+-- Part still exists because it's referenced by the variable 'part', so it can be returned to view
+part.Parent = workspace 
+wait(1)
+-- Remove the part from view again
+part.Parent = nil
+-- Clear part reference so it gets picked up by the garbage collector
+part = nil
