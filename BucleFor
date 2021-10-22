@@ -1,0 +1,20 @@
+Operadores de iteración
+-----------------------
+
+for - do
+--------
+
+Bucle utilizado cuando se conoce de antemano el número de repeticiones, determinado por una variable de control.
+
+
+for contador = 1, 5 do
+	print(contador)
+end
+
+
+Con step (incremento o decremento)
+-------------------------------
+
+for contador = 1, 10, 2 do
+	print(contador)
+end
