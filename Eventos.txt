@@ -1,0 +1,112 @@
+GESTION DE EVENTOS
+-------------------
+
+Cada objeto tiene eventos (events) que pueden utilizarse para establecer sistemas de causa-efecto.
+
+Los eventos envían señales cuando ciertas cosas suceden en el juego, tocar objetos, un jugador se incorpora al juego, etc. Se dice que se ha disparado el evento cuando se 
+envía la consiguiente señal.
+
+Esperando un evento
+-------------------
+
+La función Wait() pausa el script hasta que el evento ocurra una vez. Cuando esto ocurra, la función devuelve los datos asociados con el evento disparado.
+
+-------------------------------------------------------
+
+local myPart = game.Workspace.Part
+ 
+-- Espera hasta que otro part choca con "myPart"
+local otherPart = myPart.Touched:Wait() 
+print("Part fue tocado por: " .. otherPart.Name)
+
+--------------------------------------------------------
+
+
+Conectando una función
+-----------------------
+
+La función Connect() se usa cuando cada vez que un determinado evento se dispara se debe ejecutar cierta función.
+
+La función devuelve un objeto de conexión.
+
+-------------------------------------------------------
+
+local myPart = game.Workspace.Part
+ 
+local function onTouched(otherPart)
+	print("Part was touched by: " .. otherPart.Name)
+end
+myPart.Touched:Connect(onTouched)
+
+-------------------------------------------------------
+
+
+Desconectar una función
+-----------------------
+
+Para evitar que una función que fue conectada a un evento vuelva a ser llamada.
+
+Para desconectarlo, usa el método Disconnect() del objeto devuelto por la función Connect()
+
+-------------------------------------------------------
+local points = Instance.new("NumberValue")
+points.Name = "Points"
+points.Value = 0
+ 
+local connection
+ 
+local function onPointsChanged(newPoints)
+	print("Points: " .. newPoints)
+	if newPoints >= 50 then
+		-- Stop listening for changes if we have at least 50 points
+		connection:Disconnect()
+	end
+end
+ 
+connection = points.Changed:Connect(onPointsChanged)
+---------------------------------------------------------
+
+Datos de eventos
+-----------------
+
+Casi todos los eventos en Roblox enviarán datos relevantes al evento.
+
+Por ejemplo, cuando un Player se une al juego, el evento Players.PlayerAdded se dispara con una referencia al nuevo jugador.
+
+-------------------------------------------------------------------------
+
+local Players = game:GetService("Players")
+ 
+local function onPlayerAdded(player)
+	print(player.Name .. " joined the game")
+end
+ 
+Players.PlayerAdded:Connect(onPlayerAdded)
+
+------------------------------------------------------------------------
+
+
+Ver Documentación: https://developer.roblox.com/en-us/articles/events
+
+
+Conexiones anidadas
+-------------------
+
+Conectar una función a un evento en un objeto proporcionado por otro evento. Para ello definir una segunda función local en la función conectada al primer evento.
+
+--------------------------------------------------------------------------------------
+
+local Players = game:GetService("Players")
+ 
+local function onPlayerAdded(player)
+	local function onCharacterAdded(character)
+		print(player.Name .. " spawned in: " .. character:GetFullName())
+	end
+	--Character property (of Player) contains a reference to a Model containing a Humanoid, body parts, scripts and others objects required
+	player.CharacterAdded:Connect(onCharacterAdded)
+end
+ 
+--Player object added when a new player connects to server
+Players.PlayerAdded:Connect(onPlayerAdded)
+
+-------------------------------------------------------------------------------------
