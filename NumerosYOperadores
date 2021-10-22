@@ -1,0 +1,55 @@
+Principales Operadores aritméticos y condicionales
+--------------------------------------------------
+
+El tipo de número representa números reales (punto flotante de precisión doble).
+
+Lua no tiene tipo entero, ya que no lo necesita.
+
+Un número Lua puede representar cualquier número entero largo sin problemas de redondeo.
+La mayoría de las CPU modernas hacen aritmética de punto flotante tan rápido (o incluso más rápido que) aritmética de enteros.
+
+Operadores
+----------
++
+-
+/ división
+* multiplicación
+% modulo
+^ exponenciación (** en C#)
+
+< MENOR
+> MAYOR
+>= MAYOR O IGUAL
+<= MENOR O IGUAL
+== IGUAL
+
+PEDMAS: parentesis, exponenciación, división, multiplicación, adición y sustracción
+
+Precedencia de operadores en Lua (la tabla debajo está ordenada de mayor a menor prioridad): 
+             ^
+             not  - (unary)
+             *   /
+             +   -
+             ..
+             <   >   <=  >=  ~=  ==
+             and
+             or
+
+--------------------------------
+
+SCRIPT:
+
+print("Vamos a contar monedas:")
+print("Euros " , 20 + 20 / 5)
+print("Centimos " , 30 - 11 * 3 % 2)
+
+print("Contamos jugadores:")
+print(3 + 1 / 2 + 4 - 5 + 6 / 2 - 1 / 2 + 4)
+
+print ("¿Es verdad que 1 + 2 < 4 - 1?")
+print (1 + 2 < 4 - 1)
+
+print ("¿Es verdad que 1 + 2 <= 4 - 1?")
+print (1 + 2 <= 4 - 1)
+
+print (7/4)
