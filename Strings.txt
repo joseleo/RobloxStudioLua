@@ -1,0 +1,45 @@
+Strings (cadenas de caracteres)
+--------------------------------
+
+Las cadenas (string) son un tipo de variable que consiste en una secuencia (o cadena) de caracteres, pueden ser por ejemplo palabras o frases.
+Por ejemplo puede almacenar el nombre del jugador, o el tipo de enemigo (lobo).
+
+----------------------
+
+-- String
+local tipoEnemigo = "Fantasma"
+print(tipoEnemigo)
+
+-- String multi-linea
+conversacionNPC = [[
+Hola aventurero esto es un
+ejemplo de como podría ser
+una conversación
+]]
+print(conversacionNPC)
+
+-- Concatenación
+nombre = "Juan"
+apellido = "Gonzalez"
+-- Concatenacion
+nombreCompleto = apellido .. ", " .. nombre
+print (nombreCompleto)
+
+--------------------
+
+Veamos algunas operaciones sobre cadenas de texto.
+
+-----------------------
+
+cadena = "pasamos este texto a mayusculas"
+print(cadena:upper())
+
+cadena2 = "PASAMOS ESTE TEXTO A MINUSCULAS"
+print(cadena2:lower())
+
+cadena3 = "Es una cadena para trocear"
+print(cadena3:sub(4, 6))
+
+print (cadena3:len())
+
+print (cadena3:reverse())
