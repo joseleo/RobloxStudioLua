@@ -1,0 +1,79 @@
+Comentarios
+-----------
+
+Comentar es importante. Es bueno acostumbrarse a adoptar buenas prácticas.
+
+Razones:
+- Cuando estás empezando a programar explicar tu propio código te ayuda a entender mejor lo que haces y consolidar conocimientos.
+- Cuando necesitas que alguien te eche una mano, comentar tu código ayuda al que lo lee a entenderlo más fácilmente.
+- Cuando hace tiempo que no tocas un proyecto, te ayuda a situarte y a entender por qué hiciste cada cosa.
+
+Tips:
+- Comenta en inglés
+- Los comentarios permiten desactivar o deshabilitar partes del código, para que no se ejecuten por el momento.
+Pero sin necesidad de borrarlas.
+
+EX1:
+
+local healthPack = script.Parent
+local healAmount = 30
+local cooldown = 10
+local canHeal = true
+ 
+local function onPartTouch(otherPart)
+	local partParent = otherPart.Parent
+	local humanoid = partParent:FindFirstChildWhichIsA("Humanoid")
+	if humanoid and canHeal == true and humanoid.Health < humanoid.MaxHealth then
+		local currentHealth = humanoid.Health
+		local newHealth = currentHealth + healAmount
+		humanoid.Health = newHealth
+		wait(cooldown)
+		canHeal = true
+	end
+end
+
+healthPack.Touched:Connect(onPartTouch)
+
+------------------
+
+EX2:
+
+-- Single Line Comment
+
+--[
+	This
+	is
+	a
+	Block
+	Comment
+--]
+
+local healthPack = script.Parent
+local healAmount = 30
+
+-- how many seconds the health pack's "cooldown"" will last 
+local cooldown = 10
+-- boolean for whether the pack can heal
+local canHeal = true
+ 
+local function onPartTouch(otherPart)
+	local partParent = otherPart.Parent
+	local humanoid = partParent:FindFirstChildWhichIsA("Humanoid")
+
+	-- Player character touched health pack
+	if humanoid and canHeal == true and humanoid.Health < humanoid.MaxHealth then
+		-- powerup is temporarily disabled
+		canHeal = false
+		local currentHealth = humanoid.Health
+		local newHealth = currentHealth + healAmount
+		humanoid.Health = newHealth
+		wait(cooldown)
+		-- powerup is enabled
+		canHeal = true
+
+		-- remove comment to single-use pack
+		-- healthPack:Destroy()
+	end
+end
+
+healthPack.Touched:Connect(onPartTouch)
