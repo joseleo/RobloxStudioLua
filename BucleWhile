@@ -1,0 +1,59 @@
+Operadores de iteración
+-----------------------
+
+- while - do
+-------------
+
+Utilizamos bucles "while" cuando precisamos repetir código un número indeterminado de veces. A diferencia del bucle "for" en el cual podemos conocer
+de antemano cuantas veces se repetirá el cuerpo del bucle.
+
+
+------------------------------
+
+local tiempoRestante = 10
+ 
+while tiempoRestante > 0 do
+	print("Segundos restantes: " .. tiempoRestante)
+	wait(1)
+	tiempoRestante = tiempoRestante - 1	
+end
+ 
+print("El contador llegó a cero!")
+
+------------------------------
+
+
+- Bucles infinitos de juego
+
+Utilizar un loop "while" con una condición que siempre se evaluará como cierta conduce a bucles infinitos. Es decir, que se repetirán de forma
+indefinida en el tiempo. 
+
+
+while true do
+	print("Looping...")
+	--siempre incluir wait para evitar ralentizar el funcionamiento del juego
+	wait(0.5)
+end
+
+---------------------------
+
+- Break
+
+La instrucción "break" permite salir del bucle y darlo por terminado.
+
+------------------------------
+
+local segundosTranscurridos = 0
+local timeout = 5
+ 
+while true do
+	print("Looping...")
+	wait(1)
+	segundosTranscurridos = segundosTranscurridos + 1
+ 
+	if segundosTranscurridos == timeout then
+		break
+	end
+end
+ 
+print("Bucle terminado")
