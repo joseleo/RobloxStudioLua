@@ -1,0 +1,28 @@
+Funciones
+---------
+
+- Nombran fragmentos de código. Algo así como empaquetar código según su función.
+- Permiten tomar datos de entrada (argumentos) y obtener un resultado de salida.
+- En definitiva son pequeños programas que podemos ejecutar una y otra vez dentro de nuestro videojuego: por ejemplo para 
+que un power-up aumente la velocidad de un jugador, o para teletransportar a un jugador a una posición dada a la función.
+
+EX 7:
+			
+local trampaPart = workspace.TrampaPart
+
+function quitarVida(vidaQuitada, vidaActual)
+	local vidaNueva = vidaActual - vidaQuitada
+	return vidaNueva
+end
+
+
+function onTouched(otherPart)
+	local human = otherPart.Parent:FindFirstChild("Humanoid")
+
+	if human then
+		human.Health = quitarVida(10, human.Health)
+		print("La vida del jugador es ", human.Health)
+	end
+end
+
+TrampaPart.Touched:Connect(onTouched)
