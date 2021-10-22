@@ -1,0 +1,37 @@
+Variables
+----------
+
+En general, en programación, una variable representa un ESPACIO de la memoria del ordenador que almacena y un NOMBRE simbólico (identificador) asociado 
+a dicho espacio.
+
+Ese espacio contiene una cantidad de información conocida o desconocida, es decir un VALOR.
+
+Ayuda a la legibilidad, si utilizamos identificadores con sentido.
+
+En Lua, las variables no especifican su tipo cuando son declaradas/definidas.
+
+Tampoco tienen modificadores de acceso, aunque por legibilidad se puede usar un guión bajo para indicar que son variables privadas.
+
+-----------------------------------
+-- camel Case
+local nombreDeJugador = "Jose"
+
+-- Public declaration
+local nombreDeJugador
+
+-- Private declaration
+local _vidaDeEnemigo
+
+-----------------------------------
+
+EX 4:
+
+local vidaMaxJugador = 100
+local resistenciaJugador = 5
+local danoRecibido = 7.5
+
+local vidaJugador = vidaMaxJugador
+
+vidaJugador = vidaJugador - danoRecibido + resistenciaJugador
+
+print("El jugador tiene " , vidaJugador , " vidas")
