@@ -1,0 +1,33 @@
+¿Qué son clases y objetos?
+---------------------------
+
+Los videojuegos están compuestos de objetos (gameobjects). Por ejemplo si hablamos de escenario: arbol, luz (p.e. sol o una bombilla), la cámara misma.
+
+Un OBJETO está compuesto de:
+
+- Propiedades: ¿cómo es el objeto? Determina sus propiedades.
+
+- Métodos: Puedes hacer cosas, tiene una funcionalidad.
+
+Estos objetos pueden corresponder a cosas que se ven dentro del juego, pero también tienen la misma estructura otros objetos como pueden ser reproductores de audio, o modulos 
+para hacer cálculos de físicas en nuestro juego, o generar niveles de juego.
+
+CLASES
+
+Las clases son un tipo de contenedor. Muchas clases las programaron los desarrolladores de Roblox al crear su motor de videojuegos.
+
+Otro ejemplo de una clase es la "estructura de una cámara". Las clases se comportan como una plantilla a partir de la cual se crean los objetos. Es decir, existe un 
+concepto general de cámara y basándonos en esta idea al iniciar el juego se crea (o instancia) la que será nuestra cámara de juego.
+
+Otro ejemplo es un player, aunque tengamos un juego multijugador, la programación de lo que es un player se hace una sola vez, y cada vez que un jugador se añade al juego 
+se hace una copia virtual (instancia) a partir de la clase y ocupa su propio espacio en memoria.
+
+Un script correspondería a una clase. Por tanto es la manera que, como programadores, tenemos de extender y personalizar los comportamientos programados por defecto por los 
+desarrolladores de Roblox Studio.
+
+Más adelante tendremos una lección dedicada al análisis de clases de nuestro juego.
+
+
+Recursos adicionales:
+
+* Ver el listado de clases: https://developer.roblox.com/en-us/api-reference/index/index.html
