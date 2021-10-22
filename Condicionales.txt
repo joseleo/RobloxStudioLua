@@ -1,0 +1,38 @@
+Estruturas Condicionales
+------------------------
+
+Permiten controlar el flujo del programa mediante la evaluación de condiciones (verdadero/falso).
+
+
+if — then
+----------
+
+if 2 + 3 == 5 then
+	print("Dos más tres es 5")
+end
+
+
+elseif — then
+-------------
+
+if vida >= 100 then
+	print("Tu vida está al máximo")
+elseif (vida < 100) and (vida > 50) then
+	print("Tu vida está a más de la mitad") 
+elseif vida <= 50 then
+	print("Tu vida está por debajo de la mitad") 
+end
+
+
+else
+-----
+
+if vida >= 100 then
+	print("Tu vida está al máximo")
+elseif (vida < 100) and (vida > 50) then
+	print("Tu vida está a más de la mitad") 
+elseif vida < 50 then
+	print("Tu vida está por debajo de la mitad")
+else
+	print ("Tu vida es justo la mitad")
+end
