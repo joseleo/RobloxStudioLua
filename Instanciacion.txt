@@ -1,0 +1,18 @@
+Instanciar objetos
+-------------------
+
+Para crear una instancia (un objeto) a partir de una clase de Roblox se utiliza la función Instance.new().
+
+Esta función se usa para crear objetos en Roblox. La función devuelve el objeto que puede ser asignada a una variable.
+
+Ejemplo
+
+--------------------------------------------------
+
+local part = Instance.new("Part")
+part.Anchored = true
+part.Parent = game.Workspace
+
+--------------------------------------------------
+
+Nota: Para que este objeto aparezca en el juego, su propiedad Parent debe ser ajustada a "Workspace".
