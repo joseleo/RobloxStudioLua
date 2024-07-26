@@ -1,0 +1,11 @@
+local healPart = Workspace.HealPart
+
+function onTouched(otherPart)
+	local human = otherPart.Parent:FindFirstChild(“Humanoid”)
+
+	if human then
+		human.Health = human.MaxHealth
+	end
+end
+
+healPart.Touched:Connect(onTouched)
